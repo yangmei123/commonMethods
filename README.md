@@ -1,5 +1,5 @@
 
-![Image text](https://github.com/yangmei123/stopScrollEvent/blob/master/demo.gif)
+![Image text](https://github.com/yangmei123/commonMethods/blob/master/demo.gif)
 
 ## 常用方法收集
 
