@@ -64,5 +64,31 @@ var common = {
       newObj[name] = obj[name];  
     }
     return newObj;
-  }
+  },
+  countdown: function(systemTime, deadline) {
+  	// 倒计时
+	  const date = deadline - systemTime;
+	  //计算出小时数
+	  const leave1 = date % (24 * 3600 * 1000);    //计算天数后剩余的毫秒数
+	  let hours = Math.floor(leave1 / (3600 * 1000));
+	  //计算相差分钟数
+	  const leave2 = leave1 % (3600 * 1000);       //计算小时数后剩余的毫秒数
+	  let minutes = Math.floor(leave2 / (60 * 1000));
+	  //计算相差秒数
+	  const leave3 = leave2 % (60 * 1000);      //计算分钟数后剩余的毫秒数
+	  let seconds = Math.round(leave3 / 1000);
+
+	  let remainingTime = ''; 
+	  if (hours.toString().length === 1) {
+	    hours = `0${hours}`;
+	  }
+	  if (minutes.toString().length === 1) {
+	    minutes = `0${minutes}`;
+	  }
+	  if (seconds.toString().length === 1) {
+	    seconds = `0${seconds}`;
+	  }
+	  remainingTime = hours < 0 || minutes < 0 || seconds < 0 ? '00 : 00 : 00' : `${hours} : ${minutes} : ${seconds}`;
+	  return remainingTime;
+   }
 };

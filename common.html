@@ -1,54 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>common</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="" rel="stylesheet">
-</head>
-<body>
-  <h2>检验字符串是否为空值空值, 空值返回true</h2>
-  <div><input type="text" id="checkStr" name="checkStr" /> <button id="checkBtn">测试</button> <span id="checkResult"></span></div>
-  <h2>设置截取字符数, 超出自定义字符</h2>
-  <div><input type="text" name="baseStr" id="baseStr"/> <input type="text" id="limitNum" name="limitNum" /> <input type="text" id="elipsisStr" name="elipsisStr" /> 
-  	<button id="limitShow">显示</button> <span id="showResult"></span></div>
-  <h2>随机数</h2>
-  <div>
-  	<input type="text" name="min" id="min" /> <input type="text" name="max" id="max" /> 
-  	<button id="random">随机数</button> <span id="randomResult"></span>
-  </div>
-  <script type="text/javascript" src="common.js"></script>
-  <script type="text/javascript">
-  	var checkStrObj = document.getElementById('checkStr');
-  	var checkBtnObj = document.getElementById('checkBtn');
-  	var checkResulutObj = document.getElementById('checkResult');
-  	var baseStrObj = document.getElementById('baseStr');
-  	var limitNumObj = document.getElementById('limitNum');
-  	var elipsisStrObj = document.getElementById('elipsisStr');
-  	var showResultObj = document.getElementById('showResult');
-  	var limitShowObj = document.getElementById('limitShow');
-  	var minObj = document.getElementById('min');
-  	var maxObj = document.getElementById('max');
-  	var randomObj = document.getElementById('random');
-  	var randomResultObj = document.getElementById('randomResult');
-  	checkBtnObj.onclick = function() {
-  		// console.log(common.objProp(checkResulutObj));
-  		checkResulutObj.innerHTML = common.strHasValue(checkStrObj.value) ? '非空值' : '空值';
-  	};
-  	limitShowObj.onclick = function() {
-  		var baseStr = baseStrObj.value;
-  		var limitNum = parseInt(limitNumObj.value, 10);
-  		var elipsisStr = elipsisStrObj.value;
-  		showResultObj.innerHTML = common.strShowLimit(baseStr, limitNum, elipsisStr);
-  	}
-  	randomObj.onclick = function() {
-  		var min = parseInt(minObj.value, 10);
-  		var max = parseInt(maxObj.value, 10);
-  		if (max < min) return randomResultObj.innerHTML = '最小值不能大于最大值';
-  		randomResultObj.innerHTML = common.randomNum(min, max);
-  	}
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>common</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+    <body>
+      <div class="demo-box">
+        <h2>检验字符串是否为空值空值, 空值返回true</h2>
+        <div><input type="text" id="checkStr" name="checkStr" /> <button id="checkBtn">测试</button> <span id="checkResult"></span></div>
+      </div>
+      <div class="demo-box"><h2>设置截取字符数, 超出自定义字符显示</h2>
+        <div><input type="text" name="baseStr" id="baseStr"/> <input type="text" id="limitNum" name="limitNum" /> <input type="text" id="elipsisStr" name="elipsisStr" />
+        <button id="limitShow">显示</button> <span id="showResult"></span></div>
+      </div>
+      <div class="demo-box"><h2>随机数</h2>
+        <div>
+          <input type="text" name="min" id="min" /> <input type="text" name="max" id="max" />
+          <button id="random">随机数</button> <span id="randomResult"></span>
+        </div>
+      </div>
+      <div class="demo-box" id="count-down"><h2>倒计时</h2>
+        <div>截止时间： </div><div id="deadline"></div>
+        <div id="showTime"></div>
+        <button id="start">开始倒计时</button>
+        <button id="stop">停止倒计时</button>
+      </div>
+      <script type="text/javascript" src="common.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>

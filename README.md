@@ -1,8 +1,15 @@
+
+![Image text](https://github.com/yangmei123/stopScrollEvent/blob/master/demo.gif)
+
 ## 常用方法收集
 
 ### 检验字符串是否为空值空值, 空值返回true
 
-### 设置截取字符数, 超出自定义字符
+### 设置截取字符数, 超出显示自定义字符
 
 ### 随机数
+
+### 倒计时
+
+
 
