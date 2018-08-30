@@ -144,5 +144,6 @@ window.onkeydown = function(e) {
       }
     });
     inputBox.value = value;
+    seletedList.style.display = 'none';
   }
 }
