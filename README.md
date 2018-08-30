@@ -1,6 +1,7 @@
 
 
 ![Image text](https://github.com/yangmei123/commonMethods/blob/master/demo.gif)
+![Image text](https://github.com/yangmei123/commonMethods/blob/master/demo1.gif)
 
 ## 常用方法收集
 
