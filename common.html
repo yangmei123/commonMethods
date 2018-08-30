@@ -9,25 +9,36 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
     <body>
+      <!-- 判空 -->
       <div class="demo-box">
         <h2>检验字符串是否为空值空值, 空值返回true</h2>
         <div><input type="text" id="checkStr" name="checkStr" /> <button id="checkBtn">测试</button> <span id="checkResult"></span></div>
       </div>
+      <!-- 设置截取字符数, 超出自定义字符显示 -->
       <div class="demo-box"><h2>设置截取字符数, 超出自定义字符显示</h2>
         <div><input type="text" name="baseStr" id="baseStr"/> <input type="text" id="limitNum" name="limitNum" /> <input type="text" id="elipsisStr" name="elipsisStr" />
         <button id="limitShow">显示</button> <span id="showResult"></span></div>
       </div>
+      <!--随机数  -->
       <div class="demo-box"><h2>随机数</h2>
         <div>
           <input type="text" name="min" id="min" /> <input type="text" name="max" id="max" />
           <button id="random">随机数</button> <span id="randomResult"></span>
         </div>
       </div>
+      <!-- 倒计时 -->
       <div class="demo-box" id="count-down"><h2>倒计时</h2>
         <div>截止时间： </div><div id="deadline"></div>
         <div id="showTime"></div>
         <button id="start">开始倒计时</button>
         <button id="stop">停止倒计时</button>
+      </div>
+      <!-- 输入显示默认提示 -->
+      <div class="demo-box" id="count-down"><h2>输入显示默认提示</h2>
+        <div><input id="inputBox" type="text" name=""></div>
+        <div id="seletedList" tabindex="1">
+          
+        </div>
       </div>
       <script type="text/javascript" src="common.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
