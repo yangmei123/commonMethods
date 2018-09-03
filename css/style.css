@@ -46,3 +46,19 @@ button {
 #seletedList li:hover {
   background-color: #ccc;
 }
+
+/* 模拟alert，confirm，prompt */
+.show-box {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: auto;
+	min-width: 200px;
+	min-height: 100px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 1px solid #868686;
+	background-color: #fff;
+}

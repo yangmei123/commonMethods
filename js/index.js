@@ -148,3 +148,70 @@ window.onkeydown = function(e) {
     index = 0;
   }
 }
+
+// 模拟alert，confirm，prompt
+// alert框
+var alertObj = document.getElementById('alert');
+var alertBox = document.getElementById('alert-box');
+var alertOk = document.getElementById('alert-ok');
+var alertMsgObj = document.getElementById('alert-msg');
+var alertMsg = '';
+
+function alert(msg) {
+  alertBox.children[0].innerHTML = msg;
+  alertBox.style.display = 'block';
+}
+alertObj.onclick = function() {
+  alert('alert消息提示');
+};
+alertOk.onclick = function() {
+  alertBox.style.display = 'none';
+};
+
+// confirm框
+var confirmObj = document.getElementById('confirm');
+var confirmBox = document.getElementById('confirm-box');
+var confirmOk = document.getElementById('confirm-ok');
+var confirmCancle = document.getElementById('confirm-cancle');
+
+function showAlert(msg) {
+  confirmBox.style.display = 'none';
+  alert(msg);
+}
+function comfirm(msg) {
+  confirmBox.children[0].innerHTML = msg;
+  confirmBox.style.display = 'block';
+}
+confirmObj.onclick = function() {
+  comfirm('我是confirm信息提示~');
+};
+confirmOk.onclick = function() {
+  showAlert('confirm中你选择了确认确认确认确认确认确认确认确认！');
+};
+confirmCancle.onclick = function() {
+  showAlert('confirm中你选择了取消取消取消取消取消取消取消取消！');
+};
+
+// prompt框
+var promptObj = document.getElementById('prompt');
+var promptBox = document.getElementById('prompt-box');
+var promptOk = document.getElementById('prompt-ok');
+var promptCancle = document.getElementById('prompt-cancle');
+
+function prompt(text, defaultInput) {
+  promptBox.children[0].innerHTML = text;
+  promptBox.children[1].value = defaultInput;
+  promptBox.style.display = 'block';
+}
+
+promptObj.onclick = function() {
+  prompt('我是prompt信息提示~', '默认显示的文案就好的');
+};
+promptOk.onclick = function() {
+  promptBox.style.display = 'none';
+  showAlert('prompt中你选择了确认！输入的文案为:' + promptBox.children[1].value);
+};
+promptCancle.onclick = function() {
+  promptBox.style.display = 'none';
+  showAlert('prompt中你选择了取消！');
+};
