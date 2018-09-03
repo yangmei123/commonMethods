@@ -174,7 +174,8 @@ var confirmBox = document.getElementById('confirm-box');
 var confirmOk = document.getElementById('confirm-ok');
 var confirmCancle = document.getElementById('confirm-cancle');
 
-function showAlert(msg) {
+function showAlert(e, msg) {
+  e.stopPropagation();
   confirmBox.style.display = 'none';
   alert(msg);
 }
@@ -185,11 +186,11 @@ function comfirm(msg) {
 confirmObj.onclick = function() {
   comfirm('我是confirm信息提示~');
 };
-confirmOk.onclick = function() {
-  showAlert('confirm中你选择了确认确认确认确认确认确认确认确认！');
+confirmOk.onclick = function(e) {
+  showAlert(e, 'confirm中你选择了确认确认确认确认确认确认确认确认！');
 };
-confirmCancle.onclick = function() {
-  showAlert('confirm中你选择了取消取消取消取消取消取消取消取消！');
+confirmCancle.onclick = function(e) {
+  showAlert(e, 'confirm中你选择了取消取消取消取消取消取消取消取消！');
 };
 
 // prompt框
@@ -203,17 +204,20 @@ function prompt(text, defaultInput) {
   promptBox.children[1].value = defaultInput;
   promptBox.style.display = 'block';
 }
+function promptAlert(ev, text) {
+  ev.stopPropagation();
+  promptBox.style.display = 'none';
+  showAlert(text);
+}
 
 promptObj.onclick = function() {
   prompt('我是prompt信息提示~', '默认显示的文案就好的');
 };
-promptOk.onclick = function() {
-  promptBox.style.display = 'none';
-  showAlert('prompt中你选择了确认！输入的文案为:' + promptBox.children[1].value);
+promptOk.onclick = function(e) {
+  promptAlert(e, 'prompt中你选择了确认！输入的文案为:' + promptBox.children[1].value);
 };
-promptCancle.onclick = function() {
-  promptBox.style.display = 'none';
-  showAlert('prompt中你选择了取消！');
+promptCancle.onclick = function(e) {
+  promptAlert(e, 'prompt中你选择了取消！');
 };
 
 function drag(domObj) {
