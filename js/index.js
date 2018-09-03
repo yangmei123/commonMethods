@@ -215,3 +215,19 @@ promptCancle.onclick = function() {
   promptBox.style.display = 'none';
   showAlert('prompt中你选择了取消！');
 };
+
+function drag(domObj) {
+  domObj.onmousedown = function (e) {
+    domObj.onmousemove = function (e) {
+      domObj.style.left = e.clientX + 'px';
+      domObj.style.top = e.clientY + 'px';
+    }
+  }
+  domObj.onmouseup = function (e) {
+    domObj.onmousemove = null;
+  }
+}
+drag(alertBox);
+drag(confirmBox);
+drag(promptBox);
+
