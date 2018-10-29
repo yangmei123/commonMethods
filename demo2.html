@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>common</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 模拟alert，confirm，prompt -->
+    <div class="demo-box" id="click-area">
+        <h2>模拟alert，confirm，prompt</h2>
+        <button id="alert">点击显示alert</button>
+        <button id="confirm">点击显示confirm</button>
+        <button id="prompt">点击显示prompt</button>
+        <div id="alert-box" class="show-box">
+            <p id="alert-msg">我是alert提示信息</p>
+            <button id="alert-ok">确认</button>
+        </div>
+        <div id="confirm-box" class="show-box">
+            <p>我是confirm</p>
+            <button id="confirm-ok">确认</button>
+            <button id="confirm-cancle">取消</button>
+        </div>
+        <div id="prompt-box" class="show-box">
+            <p>我是prompt</p>
+            <input type="text" id="prompt-input" name="">
+            <button id="prompt-ok">确认</button>
+            <button id="prompt-cancle">取消</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+    // 模拟alert，confirm，prompt
+    // alert框
+    var alertObj = document.getElementById('alert');
+    var alertBox = document.getElementById('alert-box');
+    var alertOk = document.getElementById('alert-ok');
+    var alertMsgObj = document.getElementById('alert-msg');
+    var alertMsg = '';
+
+    function alert(msg) {
+      alertBox.children[0].innerHTML = msg;
+      alertBox.style.display = 'block';
+    }
+    alertObj.onclick = function() {
+      alert('alert消息提示');
+    };
+    alertOk.onclick = function(e) {
+      e.stopPropagation();
+      alertBox.style.display = 'none';
+    };
+
+    // confirm框
+    var confirmObj = document.getElementById('confirm');
+    var confirmBox = document.getElementById('confirm-box');
+    var confirmOk = document.getElementById('confirm-ok');
+    var confirmCancle = document.getElementById('confirm-cancle');
+
+    function showAlert(e, msg) {
+      if (e) { e.stopPropagation(); }
+      confirmBox.style.display = 'none';
+      alert(msg);
+    }
+
+    function comfirm(msg) {
+      confirmBox.children[0].innerHTML = msg;
+      confirmBox.style.display = 'block';
+    }
+    confirmObj.onclick = function() {
+      comfirm('我是confirm信息提示~');
+    };
+    confirmOk.onclick = function(e) {
+      showAlert(e, 'confirm中你选择了确认确认确认确认确认确认确认确认！');
+    };
+    confirmCancle.onclick = function(e) {
+      showAlert(e, 'confirm中你选择了取消取消取消取消取消取消取消取消！');
+    };
+
+    // prompt框
+    var promptObj = document.getElementById('prompt');
+    var promptBox = document.getElementById('prompt-box');
+    var promptOk = document.getElementById('prompt-ok');
+    var promptCancle = document.getElementById('prompt-cancle');
+
+    function prompt(text, defaultInput) {
+      promptBox.children[0].innerHTML = text;
+      promptBox.children[1].value = defaultInput;
+      promptBox.style.display = 'block';
+    }
+
+    function promptAlert(e, text) {
+      e.stopPropagation();
+      promptBox.style.display = 'none';
+      showAlert('', text);
+    }
+
+    promptObj.onclick = function() {
+      prompt('我是prompt信息提示~', '默认显示的文案就好的');
+    };
+    promptOk.onclick = function(e) {
+      promptAlert(e, 'prompt中你选择了确认！输入的文案为:' + promptBox.children[1].value);
+    };
+    promptCancle.onclick = function(e) {
+      promptAlert(e, 'prompt中你选择了取消！');
+    };
+
+    function drag(domObj) {
+      domObj.onmousedown = function(e) {
+        domObj.onmousemove = function(e) {
+          domObj.style.left = e.clientX + 'px';
+          domObj.style.top = e.clientY + 'px';
+        }
+      }
+      domObj.onmouseup = function(e) {
+        domObj.onmousemove = null;
+      }
+    }
+    drag(alertBox);
+    drag(confirmBox);
+    drag(promptBox);
+    </script>
+</body>
+
+</html>
